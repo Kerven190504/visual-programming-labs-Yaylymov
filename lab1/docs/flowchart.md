@@ -18,8 +18,9 @@ flowchart TD
     SuggestAnotherCard -- Нет --> EndFail
     
     CheckBalance -- Да --> HoldFunds[Блокировка суммы на карте]
-    HoldFunds --> Confirm[Подтверждение 2FA / биометрия]
+    HoldFunds --> SendSMS[/Отправка SMS с кодом подтверждения/]
+    SendSMS --> Confirm[Подтверждение 2FA / биометрия]
     Confirm --> ProcessPayment[Списание средств]
     ProcessPayment --> SendNotification[Передача реестра в ЖКХ]
     SendNotification --> GenerateReceipt[Формирование фискального чека]
-GenerateReceipt --> EndSuccess([Успешное завершение])
+    GenerateReceipt --> EndSuccess([Успешное завершение])

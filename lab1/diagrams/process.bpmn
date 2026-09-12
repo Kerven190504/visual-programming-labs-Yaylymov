@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.28.0">
   <bpmn:process id="Process_1" isExecutable="false">
     <bpmn:startEvent id="StartEvent_1" name="Начало оплаты" />
+    <bpmn:task id="Task_Log" name="Логирование начала сессии" />
     <bpmn:task id="Task_Input" name="Ввод лицевого счета" />
     <bpmn:exclusiveGateway id="Gateway_CheckAccount" name="Счет найден?" />
     <bpmn:task id="Task_SelectCard" name="Выбор карты и подтверждение" />
@@ -11,7 +12,8 @@
     <bpmn:parallelGateway id="Gateway_Join" />
     <bpmn:endEvent id="EndEvent_Success" name="Услуга оплачена" />
     <bpmn:endEvent id="EndEvent_Fail" name="Ошибка: счет не найден" />
-    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_Input" />
+    <bpmn:sequenceFlow id="Flow_0" sourceRef="StartEvent_1" targetRef="Task_Log" />
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Task_Log" targetRef="Task_Input" />
     <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_Input" targetRef="Gateway_CheckAccount" />
     <bpmn:sequenceFlow id="Flow_Yes" name="Да" sourceRef="Gateway_CheckAccount" targetRef="Task_SelectCard" />
     <bpmn:sequenceFlow id="Flow_No" name="Нет" sourceRef="Gateway_CheckAccount" targetRef="EndEvent_Fail" />
@@ -25,49 +27,107 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="160" y="102" width="36" height="36" />
-        <bpmndi:BPMNLabel><dc:Bounds x="139" y="145" width="79" height="14" /></bpmndi:BPMNLabel>
+        <dc:Bounds x="160" y="152" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="139" y="195" width="79" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Log_di" bpmnElement="Task_Log">
+        <dc:Bounds x="230" y="130" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_Input_di" bpmnElement="Task_Input">
-        <dc:Bounds x="250" y="80" width="100" height="80" />
+        <dc:Bounds x="360" y="130" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_CheckAccount_di" bpmnElement="Gateway_CheckAccount" isMarkerVisible="true">
-        <dc:Bounds x="405" y="95" width="50" height="50" />
-        <bpmndi:BPMNLabel><dc:Bounds x="394" y="65" width="72" height="14" /></bpmndi:BPMNLabel>
+        <dc:Bounds x="500" y="145" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="490" y="115" width="71" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_SelectCard_di" bpmnElement="Task_SelectCard">
-        <dc:Bounds x="510" y="80" width="100" height="80" />
+        <dc:Bounds x="590" y="130" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_Fork_di" bpmnElement="Gateway_Fork">
-        <dc:Bounds x="665" y="95" width="50" height="50" />
+        <dc:Bounds x="730" y="145" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="717" y="195" width="76" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_Pay_di" bpmnElement="Task_Pay">
-        <dc:Bounds x="760" y="30" width="100" height="80" />
+        <dc:Bounds x="820" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_Notify_di" bpmnElement="Task_Notify">
-        <dc:Bounds x="760" y="150" width="100" height="80" />
+        <dc:Bounds x="820" y="200" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_Join_di" bpmnElement="Gateway_Join">
-        <dc:Bounds x="915" y="95" width="50" height="50" />
+        <dc:Bounds x="960" y="145" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_Success_di" bpmnElement="EndEvent_Success">
-        <dc:Bounds x="1022" y="102" width="36" height="36" />
-        <bpmndi:BPMNLabel><dc:Bounds x="997" y="145" width="87" height="14" /></bpmndi:BPMNLabel>
+        <dc:Bounds x="1060" y="152" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1036" y="195" width="86" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_Fail_di" bpmnElement="EndEvent_Fail">
-        <dc:Bounds x="412" y="212" width="36" height="36" />
-        <bpmndi:BPMNLabel><dc:Bounds x="395" y="255" width="71" height="27" /></bpmndi:BPMNLabel>
+        <dc:Bounds x="507" y="262" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="483" y="305" width="85" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1"><di:waypoint x="196" y="120" /><di:waypoint x="250" y="120" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2"><di:waypoint x="350" y="120" /><di:waypoint x="405" y="120" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_Yes_di" bpmnElement="Flow_Yes"><di:waypoint x="455" y="120" /><di:waypoint x="510" y="120" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_No_di" bpmnElement="Flow_No"><di:waypoint x="430" y="145" /><di:waypoint x="430" y="212" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3"><di:waypoint x="610" y="120" /><di:waypoint x="665" y="120" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_Fork1_di" bpmnElement="Flow_Fork1"><di:waypoint x="690" y="95" /><di:waypoint x="690" y="70" /><di:waypoint x="760" y="70" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_Fork2_di" bpmnElement="Flow_Fork2"><di:waypoint x="690" y="145" /><di:waypoint x="690" y="190" /><di:waypoint x="760" y="190" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_Join1_di" bpmnElement="Flow_Join1"><di:waypoint x="860" y="70" /><di:waypoint x="940" y="70" /><di:waypoint x="940" y="95" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_Join2_di" bpmnElement="Flow_Join2"><di:waypoint x="860" y="190" /><di:waypoint x="940" y="190" /><di:waypoint x="940" y="145" /></bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End"><di:waypoint x="965" y="120" /><di:waypoint x="1022" y="120" /></bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0_di" bpmnElement="Flow_0">
+        <di:waypoint x="196" y="170" />
+        <di:waypoint x="230" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="330" y="170" />
+        <di:waypoint x="360" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="460" y="170" />
+        <di:waypoint x="500" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Yes_di" bpmnElement="Flow_Yes">
+        <di:waypoint x="550" y="170" />
+        <di:waypoint x="590" y="170" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="563" y="145" width="14" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_No_di" bpmnElement="Flow_No">
+        <di:waypoint x="525" y="195" />
+        <di:waypoint x="525" y="262" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="531" y="219" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="690" y="170" />
+        <di:waypoint x="730" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Fork1_di" bpmnElement="Flow_Fork1">
+        <di:waypoint x="755" y="145" />
+        <di:waypoint x="755" y="120" />
+        <di:waypoint x="820" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Fork2_di" bpmnElement="Flow_Fork2">
+        <di:waypoint x="755" y="195" />
+        <di:waypoint x="755" y="240" />
+        <di:waypoint x="820" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Join1_di" bpmnElement="Flow_Join1">
+        <di:waypoint x="920" y="120" />
+        <di:waypoint x="985" y="120" />
+        <di:waypoint x="985" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Join2_di" bpmnElement="Flow_Join2">
+        <di:waypoint x="920" y="240" />
+        <di:waypoint x="985" y="240" />
+        <di:waypoint x="985" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
+        <di:waypoint x="1010" y="170" />
+        <di:waypoint x="1060" y="170" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

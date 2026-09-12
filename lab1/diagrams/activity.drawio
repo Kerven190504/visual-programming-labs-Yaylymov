@@ -8,25 +8,29 @@
           <mxGeometry x="385" y="40" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="act1" value="Запрос баланса выбранной карты" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;" vertex="1" parent="1">
-          <mxGeometry x="320" y="110" width="160" height="50" as="geometry" />
+          <mxGeometry x="320" y="100" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="act_log" value="Логирование попытки списания" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;" vertex="1" parent="1">
+          <mxGeometry x="320" y="160" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="dec1" value="Баланс &amp;gt;= Сумме?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="200" width="140" height="70" as="geometry" />
+          <mxGeometry x="330" y="230" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="act_fail" value="Отобразить ошибку и предложить другую карту" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;" vertex="1" parent="1">
-          <mxGeometry x="140" y="210" width="150" height="50" as="geometry" />
+          <mxGeometry x="140" y="235" width="150" height="50" as="geometry" />
         </mxCell>
         <mxCell id="act_hold" value="Заблокировать сумму платежа" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;" vertex="1" parent="1">
-          <mxGeometry x="330" y="310" width="140" height="50" as="geometry" />
+          <mxGeometry x="330" y="320" width="140" height="45" as="geometry" />
         </mxCell>
         <mxCell id="act_debit" value="Списать средства и выдать чек" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;" vertex="1" parent="1">
-          <mxGeometry x="330" y="400" width="140" height="50" as="geometry" />
+          <mxGeometry x="330" y="395" width="140" height="45" as="geometry" />
         </mxCell>
         <mxCell id="end" value="" style="ellipse;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="385" y="490" width="30" height="30" as="geometry" />
+          <mxGeometry x="385" y="470" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="start" target="act1"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="e2" edge="1" parent="1" source="act1" target="dec1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_log" edge="1" parent="1" source="act1" target="act_log"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="act_log" target="dec1"><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="e3" value="[Нет]" edge="1" parent="1" source="dec1" target="act_fail"><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="e4" value="[Да]" edge="1" parent="1" source="dec1" target="act_hold"><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="e5" edge="1" parent="1" source="act_hold" target="act_debit"><mxGeometry relative="1" as="geometry" /></mxCell>
