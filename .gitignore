@@ -1,0 +1,12 @@
+# Windows thumbnails & files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code & JetBrains
+.vscode/
+.idea/
+
+# Temp files
+*.tmp
+*.log
