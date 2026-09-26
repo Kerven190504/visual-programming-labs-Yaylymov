@@ -10,3 +10,6 @@ Desktop.ini
 # Temp files
 *.tmp
 *.log
+
+# Node-RED data
+lab2/node_red_data/
