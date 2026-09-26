@@ -1,0 +1,67 @@
+[
+    {
+        "id": "8587b41370fb4973",
+        "type": "template",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Отчет об успеваемости:\nСтудент: {{payload.student}}\nДисциплина: {{payload.course}}\nТекущий балл: {{payload.grade}} из 100.\nСтатус: Допущен к сессии.",
+        "output": "str",
+        "x": 500,
+        "y": 780,
+        "wires": [
+            [
+                "2b550309c31361ed"
+            ]
+        ]
+    },
+    {
+        "id": "2906ebef47284ebd",
+        "type": "inject",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"student\":\"Yaylymov\",\"course\":\"Визуальное программирование\",\"grade\":100}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 780,
+        "wires": [
+            [
+                "8587b41370fb4973"
+            ]
+        ]
+    },
+    {
+        "id": "2b550309c31361ed",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 780,
+        "wires": []
+    }
+]

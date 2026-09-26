@@ -1,0 +1,132 @@
+[
+    {
+        "id": "74a62a99acee8c04",
+        "type": "inject",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "a1cc8c2075d9bae6"
+            ]
+        ]
+    },
+    {
+        "id": "18c8f0720923a8da",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "39504bd23620c159",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a1cc8c2075d9bae6",
+        "type": "function",
+        "z": "e496fa9cf0f8d069",
+        "name": "function 2",
+        "func": "// Массив с возможными статусами\nconst statuses = [\"Approved\", \"Rejected\"];\n\n// Случайным образом выбираем один из статусов\nmsg.payload = statuses[Math.floor(Math.random() * statuses.length)];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "89389a82250990a8"
+            ]
+        ]
+    },
+    {
+        "id": "89389a82250990a8",
+        "type": "switch",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Approved",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Rejected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 460,
+        "wires": [
+            [
+                "96cd60622f41dde7"
+            ],
+            [
+                "39504bd23620c159"
+            ]
+        ]
+    },
+    {
+        "id": "96cd60622f41dde7",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 420,
+        "wires": []
+    }
+]

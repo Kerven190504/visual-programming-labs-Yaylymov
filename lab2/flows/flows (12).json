@@ -1,0 +1,73 @@
+[
+    {
+        "id": "a07b967710cab278",
+        "type": "inject",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 2760,
+        "wires": [
+            [
+                "473a48e1c4987baa"
+            ]
+        ]
+    },
+    {
+        "id": "48321f6425d6139d",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 2760,
+        "wires": []
+    },
+    {
+        "id": "473a48e1c4987baa",
+        "type": "trigger",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "op1": "ВКЛЮЧЕНО",
+        "op2": "ВЫКЛЮЧЕНО",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "3",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 490,
+        "y": 2760,
+        "wires": [
+            [
+                "48321f6425d6139d"
+            ]
+        ]
+    }
+]

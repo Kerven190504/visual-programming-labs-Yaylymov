@@ -1,0 +1,133 @@
+[
+    {
+        "id": "f0329052945ab8de",
+        "type": "function",
+        "z": "e496fa9cf0f8d069",
+        "name": "function 5",
+        "func": "let date = new Date().toLocaleString();\nmsg.payload = \"Студент: Yaylymov | Время записи: \" + date;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1600,
+        "wires": [
+            [
+                "7c68485592d044b1"
+            ]
+        ]
+    },
+    {
+        "id": "7c68485592d044b1",
+        "type": "file",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "filename": "C:\\Users\\Acer\\Desktop\\visual-programming-labs-Yaylymov\\lab2\\student_data.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 620,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "613aea7157ac5fc1",
+        "type": "inject",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 1600,
+        "wires": [
+            [
+                "f0329052945ab8de"
+            ]
+        ]
+    },
+    {
+        "id": "42870cf5e7b9914d",
+        "type": "inject",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 1800,
+        "wires": [
+            [
+                "f1407d4c302f262b"
+            ]
+        ]
+    },
+    {
+        "id": "c0d11d5b362f6b7a",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "f1407d4c302f262b",
+        "type": "file in",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "filename": "C:\\Users\\Acer\\Desktop\\visual-programming-labs-Yaylymov\\lab2\\student_data.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 620,
+        "y": 1800,
+        "wires": [
+            [
+                "c0d11d5b362f6b7a"
+            ]
+        ]
+    }
+]

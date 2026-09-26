@@ -1,0 +1,48 @@
+[
+    {
+        "id": "44b48759e83de53e",
+        "type": "inject",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lab2/Yaylymov/basic",
+        "payload": "Yaylymov",
+        "payloadType": "str",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "b5ed7fedb68e7336"
+            ]
+        ]
+    },
+    {
+        "id": "b5ed7fedb68e7336",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 160,
+        "wires": []
+    }
+]

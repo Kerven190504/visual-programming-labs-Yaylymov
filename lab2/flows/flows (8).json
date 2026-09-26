@@ -1,0 +1,51 @@
+[
+    {
+        "id": "c3da7b511550cf5a",
+        "type": "http in",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "url": "/api/student",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 1440,
+        "wires": [
+            [
+                "1a38f1c2931dd505"
+            ]
+        ]
+    },
+    {
+        "id": "27bf6a41aaad80f5",
+        "type": "http response",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "1a38f1c2931dd505",
+        "type": "function",
+        "z": "e496fa9cf0f8d069",
+        "name": "function 4",
+        "func": "msg.payload = {\n    status: \"success\",\n    student: \"Yaylymov\",\n    lab: 2,\n    message: \"Мой первый API работает отлично!\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1440,
+        "wires": [
+            [
+                "27bf6a41aaad80f5"
+            ]
+        ]
+    }
+]

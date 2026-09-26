@@ -1,0 +1,99 @@
+[
+    {
+        "id": "80a446c1315929a8",
+        "type": "inject",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 2100,
+        "wires": [
+            [
+                "acca4ae5f44116e9"
+            ]
+        ]
+    },
+    {
+        "id": "d91676770da6b9fa",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "acca4ae5f44116e9",
+        "type": "function",
+        "z": "e496fa9cf0f8d069",
+        "name": "function 6",
+        "func": "throw new Error(\"Критический сбой системы. Требуется вмешательство администратора Yaylymov!\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 2100,
+        "wires": [
+            [
+                "d91676770da6b9fa"
+            ]
+        ]
+    },
+    {
+        "id": "95fe5690422b936f",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "ee171a6761537b2a",
+        "type": "catch",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 350,
+        "y": 2300,
+        "wires": [
+            [
+                "95fe5690422b936f"
+            ]
+        ]
+    }
+]

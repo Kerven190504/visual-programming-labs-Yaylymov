@@ -1,0 +1,89 @@
+[
+    {
+        "id": "ed5b07a9c8d22032",
+        "type": "inject",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "dcf61ac1fd5655d9"
+            ]
+        ]
+    },
+    {
+        "id": "dcf61ac1fd5655d9",
+        "type": "change",
+        "z": "e496fa9cf0f8d069",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "lab2/Yaylymov/change",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Данные успешно перезаписаны!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 600,
+        "wires": [
+            [
+                "bf58743cf832b372"
+            ]
+        ]
+    },
+    {
+        "id": "bf58743cf832b372",
+        "type": "debug",
+        "z": "e496fa9cf0f8d069",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 600,
+        "wires": []
+    }
+]
