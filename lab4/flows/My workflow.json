@@ -1,0 +1,95 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d11e5a1a-1370-4a14-ae09-89dbc18b96c2",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d23dfb32-16bd-489c-9b67-00785d266b8b",
+              "name": "payload",
+              "value": "Яйлымов",
+              "type": "string"
+            },
+            {
+              "id": "22a1fa93-729a-4ccb-b525-1696c6aea28c",
+              "name": "topic",
+              "value": "lab4/Yaylymov/basic",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "ff78fa48-9cbc-4c62-9e78-13023d581e2b",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log($input.all());\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        0
+      ],
+      "id": "c5124a61-fb89-4a67-96d5-7afc1d8454af",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "caae2e67-c597-4428-82d9-ad421e30fd00",
+  "meta": {
+    "instanceId": "f883c64ac28e061e9398231d8294a00338d18be0cf7f0a6b08753ce1aa13a3f4"
+  },
+  "nodeGroups": [],
+  "id": "uQ5AMdpvxL5ZEOAn",
+  "tags": []
+}
